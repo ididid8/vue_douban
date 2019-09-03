@@ -41,5 +41,66 @@ const state = {
 }
 
 const mutations = {
-  
+  getMovie (state, payload) {
+    switch (payload.tag) {
+      case 'hotMovies':
+        state.hotMovies = payload.res
+        break
+      case 'newMovies':
+        state.newMovies = payload.res
+        break
+      case 'topMovies':
+        state.topMovies = payload.res
+        break
+      default:
+        state.hotMovies = payload.res
+    }
+  }
+}
+
+const action = {
+  getMovie ({ commit }) {
+    request
+      .get('https://api.douban.com/v2/movie/in_theaters?count=8')
+      .use(jsonp)
+      .end((err, res) => {
+        if (!err) {
+          commit({
+            type: 'getMovie',
+            tag: 'hotMovie',
+            res: res.body.subjects
+          })
+        }
+      })
+    request
+      .get('https://api.douban.com/v2/movie/coming_soon?count=8')
+      .use(jsonp)
+      .end((err, res) => {
+        if (!err) {
+          commit({
+            type: 'getMovie',
+            tag: 'newMovies',
+            res: res.body.subjects
+          })
+        }
+      })
+    request
+      .get('https://api.douban.com/v2/movie/top250?count=8')
+      .use(jsonp)
+      .end((err, res) => {
+        if (!err) {
+          commit({
+            type: 'getMovie',
+            tag: 'topMovies',
+            res: res.body.subjects
+          })
+        }
+      })
+  }
+}
+
+export default {
+  state,
+  mutations,
+  actions
 }
