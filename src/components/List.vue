@@ -61,7 +61,7 @@ export default {
     padding: 2.5rem 1.8rem 2.5rem 0;
     margin-left: 1.8rem;
     
-    .content:  {
+    .content {
       overflow: hidden;
       margin-bottom: 1rem;
     }

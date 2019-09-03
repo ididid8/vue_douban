@@ -58,7 +58,7 @@ const mutations = {
   }
 }
 
-const action = {
+const actions = {
   getMovie ({ commit }) {
     request
       .get('https://api.douban.com/v2/movie/in_theaters?count=8')

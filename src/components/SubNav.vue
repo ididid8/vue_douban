@@ -59,7 +59,8 @@ export default {
     },
     holder: function () {
       return this.currentUser.name? this.currentUser.name: '请先登录'
-    }
+    },
+    ...mapGetters(['currentUser'])
   },
   methods: {
     logout () {
@@ -80,7 +81,7 @@ export default {
   
 </script>
 
-<style>
+<style lang="scss" scoped>
 .navBottom {
   width: 100%;
   border-bottom: 0.1rem solid #f3f3f3;
@@ -125,7 +126,7 @@ export default {
       padding: 1.2rem 0;
       line-height: 2rem;
       text-align: center;
-      background-color: $#f6f6f6;
+      background-color: #f6f6f6;
       color: #494949;
       border-radius: 0.2rem;
       overflow: hidden;

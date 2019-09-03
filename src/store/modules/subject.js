@@ -25,5 +25,91 @@ const state = {
 }
 
 const getters = {
-  
+  subjectMeta: state => {
+    if (state.classify === 'movie') {
+      return state.subject.year + ' / ' + 
+        state.subject.genres.join(' / ') + ' / ' + 
+        state.subject.casts.map(item => item.name).join(' / ') + ' / ' + 
+        state.subject.directors.map(item => item.name).join(' / ') + ' / ' + 
+        state.subject.countries.join(' / ')
+    } else if (state.classify === 'books') {
+      return state.subject.author.join(' / ') + ' / ' + 
+        state.subject.translator.join(' / ') + ' / ' + 
+        state.subject.publisher + ' / ' + 
+        state.subject.binding + ' / ' + 
+        state.subject.pages + ' / ' + 
+        state.subject.price + ' / ' + 
+        state.subject.pubdate
+    }
+  },
+  summary: state => {
+    if (state.subject.summary) {
+      return state.subject.summary.slice(1, 120)
+    }
+  },
+  genres: state => {
+    if (state.classify === 'book') {
+      return state.subject.tags
+    } else if (state.classify === 'movie') {
+      return state.subject.genres
+    }
+  }
+}
+
+
+const mutations = {
+  getSingleSubject (state, payload) {
+    state.classify = payload.classify
+    state.subject = payload.res
+  }
+}
+
+
+const actions = {
+  getSingleSubject ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      switch (payload.classify) {
+        case 'movie':
+          request
+            .get('https://api.douban.com/v2/' + payload.classify + '/subject/' + payload.id)
+            .use(jsonp)
+            .end((err, res) => {
+              if (!err) {
+                commit({
+                  type: 'getSingleSubject',
+                  classify: payload.classify,
+                  res: res.body
+                })
+                resolve(res)
+              }
+            })
+          break
+        case 'book':
+          request
+            .get('https://api.douban.com/v2/' + payload.classify + '/' + payload.id)
+            .use(jsonp)
+            .end((err, res) => {
+              if (!err) {
+                commit({
+                  type: 'getSingleSubject',
+                  classify: payload.classify,
+                  res: res.body
+                })
+                resolve(res)
+              }
+            })
+          break
+        default:
+          console.log('[Error]:Api is error!')
+      }
+    })
+  }
+}
+
+
+export default {
+  state,
+  getters,
+  mutations,
+  actions
 }
