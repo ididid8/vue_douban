@@ -1,7 +1,8 @@
-import Vue from 'Vue'
+import Vue from 'vue'
 import Router from 'vue-router'
 
-import BookView from '/src/views/BookView'
+import PagesView from '../views/PagesView.vue'
+import BookView from '../views/BookView'
 
 
 Vue.use(Router)
@@ -13,7 +14,15 @@ export default new Router({
       redirect: '/pages/'
     },
     {
-      
+      path: '/pages',
+      component: PagesView,
+      children: [
+        {
+          path: 'book',
+          name: 'BookView',
+          component: BookView
+        }
+      ]
     }
   ]
 })

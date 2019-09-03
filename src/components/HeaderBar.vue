@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .header-bar {
-  .title: {
+  .title {
     flex: 1;
     max-width: 4.6rem;
     max-height: 2.2rem;

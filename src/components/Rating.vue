@@ -36,7 +36,7 @@ export default {
     }
   },
   created () {
-    let average this.rating.average
+    let average = this.rating.average
     this.full = parseInt(average / 2)
     this.half = average % 2 === 0? 0: 1
     this.gray = 5 - this.full - this.half
