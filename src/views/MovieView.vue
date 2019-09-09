@@ -36,7 +36,7 @@
       }
     },
     created () {
-      this.getMovie()ßß
+      this.getMovie()
     }
   }
 </script>
