@@ -3,7 +3,7 @@ import jsonp from 'superagent-jsonp'
 
 
 const state = {
-  event: [],
+  events: [],
   temp: [],
   skip: 0,
   eventItem: {}
@@ -12,7 +12,7 @@ const state = {
 const mutations = {
   loadMore (state, payload) {
     state.skip += 3
-    state.event = state.event.concat(payload.res)
+    state.events = state.events.concat(payload.res)
   },
   getSingleEvent (state, payload) {
     state.eventItem = payload.res
@@ -23,8 +23,10 @@ const actions = {
   loadMore ({ commit, state}) {
     request
       .get('https://api.douban.com/v2/event/list?loc=108288&start=' + state.skip + '&count=3')
-      .use(jsonp)
+      .use(jsonp({ timeout: 10000 }))
       .end((err, res) => {
+        console.log(err)
+        console.log(res)
         if (!err) {
           commit({
             type: 'loadMore',

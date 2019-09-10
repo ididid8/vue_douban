@@ -112,7 +112,7 @@
   import Marking from '../components/Marking.vue'
   import Card from '../components/Card.vue'
   import List from '../components/List.vue'
-  import Scorller from '../components/Scroller.vue'
+  import Scroller from '../components/Scroller.vue'
   import Tags from '../components/Tags.vue'
   import DownloadApp from '../components/DownloadApp.vue'
   import Loading from '../components/DownloadApp.vue'

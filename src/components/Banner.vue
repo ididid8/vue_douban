@@ -61,7 +61,7 @@ export default {
     bottom: 0.2rem;
     padding: 0.4rem;
     font-size: 1.2rem;
-    color: rgb(255, 255. 255);
+    color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.3);
   }
 }

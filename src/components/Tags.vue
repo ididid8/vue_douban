@@ -1,7 +1,7 @@
 <template>
 	<div class="tags">
 		<ul>
-			<li v-for="item in items">
+			<li v-for="item in items" :key="item">
 				<a href="#">{{ item.name? item.name: item }</a>
 			</li>
 		</ul>
@@ -17,7 +17,7 @@ export default {
 			required: true,
 		}
 	},
-	data: {
+	data () {
 		return {}
 	}
 }

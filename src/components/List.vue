@@ -8,7 +8,7 @@
         <div class="content">
           <img :src="item.image_hlarge" alt="cover">
           <h3>{{ item.title }}</h3>
-          <P>{{ item.content | subStr }}</P>
+          <p>{{ item.content | subStr }}</p>
         </div>
         <div class="author">
           <span class="name">{{ item.category_name }}</span>
@@ -46,8 +46,9 @@ export default {
     return {}
   },
   filters: {
-    subStr: function() {
-      
+    subStr: function(value) {
+      let newValue = value.replace(/<.*?>/g, '')
+      return newValue.slice(0, 30)
     }
   }
 }

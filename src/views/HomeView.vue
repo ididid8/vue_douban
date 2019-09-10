@@ -2,9 +2,9 @@
   <div class="home-view has-header">
     <sub-nav mold="quickNav"></sub-nav>
     <list mold="thumbnail" :items="events"></list>
-    <infinite-loadng :on-infinite="onInfinite" ref="infiniteLoading">
+    <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading">
       <loading slot="spinner"></loading>
-    </infinite-loadng>
+    </infinite-loading>
   </div>
 </template>
 
@@ -31,7 +31,7 @@
       onInfinite () {
         setTimeout(() => {
           this.loadMore()
-          this.$refs.infiniteLoading.$emit('$InfiniteLoading: loaded')
+          this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded')
         }, 1000)
       },
       ...mapActions([
