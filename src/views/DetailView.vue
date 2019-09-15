@@ -87,6 +87,7 @@
         type: 'getSingleEvent',
         id: id
       }).then(res => {
+        res
         this.showLoading = false
       })
     }
@@ -139,7 +140,7 @@
       float: left;
       margin-left: -3.3rem;
       line-height: 150%;
-      color: #66666;
+      color: #666666;
     }
     
     ul {

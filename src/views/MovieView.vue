@@ -27,7 +27,7 @@
         hotMovies: state => state.movie.hotMovies,
         topMovies: state => state.movie.topMovies,
         newMovies: state => state.movie.newMovies,
-        movieTage: state => state.movieTags
+        movieTags: state => state.movie.movieTags
       })
     },
     methods: {

@@ -26,7 +26,7 @@
 				return this.currentUser.name? 'HomeView': 'LoginView'
 			},
 			holder: function () {
-				return this.currentUser.name? this.currentUser.name: '未登录'
+				return this.currentUser.name? this.currentUser.name: '请先登录'
 			},
 			...mapGetters(['currentUser'])
 		},
@@ -86,7 +86,7 @@
   	background-repeat: no-repeat;
   }
   
-  .icon-carmera::before {
+  .icon-camera::before {
   	background-image: url('../assets/camera.svg');
   }
   

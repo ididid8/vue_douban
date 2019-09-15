@@ -23,7 +23,7 @@
         </router-link>
       </li>
     </ul>
-    <solt name="more"></solt>
+    <slot name="more"></slot>
   </div>
 </template>
 

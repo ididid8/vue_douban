@@ -42,7 +42,7 @@ export default {
   padding-top: 1rem;
 }
 
-header {
+.header {
   height: 2.6rem;
   line-height: 2.6rem;
   padding: 0 1.6rem;

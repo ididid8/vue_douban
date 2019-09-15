@@ -39,7 +39,7 @@
     },
     computed: {
       ...mapState({
-        queryStr: state => state.search.queryRes_movie
+        queryRes_movie: state => state.search.queryRes_movie
       })
     },
     methods: {

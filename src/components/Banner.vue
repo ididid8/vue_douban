@@ -7,7 +7,7 @@
     </template>
     <template v-else>
       <div class="banner-bg">
-        <img sec="../assets/promotion_bg.jpg" alt="cover">
+        <img src="../assets/promotion_bg.jpg" alt="cover">
       </div>
       <div class="content">
         <span class="title">{{ title }}</span>

@@ -8,7 +8,7 @@
 
 <script>
 import HeaderBar from '../components/HeaderBar'
-import TalionView from './TalionView.vue'
+import TalionView from '../views/TalionView.vue'
 
 export default {
   name: 'pages-view',
@@ -30,4 +30,5 @@ export default {
 </script>
 
 <style scoped>
+  
 </style>
